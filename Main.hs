@@ -23,7 +23,7 @@ import DB.Utils
 
 -- Replace `ex1` with the exercise you want to print
 
-main = putStrLn (ppTableNames db)
+main = prompt db
 
 ---------------------
 -- YOUR WORK BELOW --
@@ -88,3 +88,16 @@ myMap f list =
 ppTableNames :: Database -> String
 ppTableNames db =
   intercalate ", " (myMap getName db)
+
+-- Exercise 5
+
+prompt :: Database -> IO ()
+prompt db = do
+  putStrLn (ppTableNames db)
+  selectedTableName <- getLine
+  let foundTable = (lookup selectedTableName db)
+      response =
+        if isJust foundTable
+          then ex3 (fromJust foundTable)
+          else "Error, no table with that name found"
+  putStrLn response
