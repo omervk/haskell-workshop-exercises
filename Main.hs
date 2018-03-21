@@ -31,3 +31,14 @@ main = putStrLn ex1
 
 
 ex1 = "Hello World!"
+
+-- Exercise 1
+
+type ColumnName = String
+type Value = Integer
+type Cell = (ColumnName, Value)
+type Row = [Cell]
+type Table = [Row]
+
+table :: Table
+table = [[("col1", 1), ("col2", 2)], [("col1", 3), ("col2", 4)]]
