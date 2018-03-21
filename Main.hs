@@ -23,7 +23,7 @@ import DB.Utils
 
 -- Replace `ex1` with the exercise you want to print
 
-main = putStrLn ex1
+main = putStrLn (ex3 ex2)
 
 ---------------------
 -- YOUR WORK BELOW --
@@ -53,3 +53,17 @@ ex2 =
  , [ ("x", 5), ("y", 6) ]
  , [ ("x", 7), ("y", 8) ]
  ]
+
+-- Exercise 3
+
+ex3 :: Table -> String
+ex3 table =
+  let
+    consistent :: Boolean
+    consistent = checkTable table
+  in
+    if consistent
+      then
+        ppTable table
+      else
+        "Inconsistent data"
