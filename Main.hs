@@ -23,7 +23,7 @@ import DB.Utils
 
 -- Replace `ex1` with the exercise you want to print
 
-main = putStrLn (ex3 ex2)
+main = putStrLn (ppTableNames db)
 
 ---------------------
 -- YOUR WORK BELOW --
@@ -59,7 +59,6 @@ ex2 =
 ex3 :: Table -> String
 ex3 table =
   let
-    consistent :: Boolean
     consistent = checkTable table
   in
     if consistent
@@ -67,3 +66,25 @@ ex3 table =
         ppTable table
       else
         "Inconsistent data"
+
+-- Exercise 4
+
+type TableName = String
+type Database = [(TableName, Table)]
+
+db :: Database
+db =
+  [
+    ("ex1", table)
+  , ("ex2", ex2)
+  ]
+
+myMap :: (a -> b) -> [a] -> [b]
+myMap f list =
+  if null list
+    then []
+    else (f (head list)) : (myMap f (tail list))
+
+ppTableNames :: Database -> String
+ppTableNames db =
+  intercalate ", " (myMap getName db)
