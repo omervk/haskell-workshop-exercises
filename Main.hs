@@ -23,7 +23,7 @@ import DB.Utils
 
 -- Replace `ex1` with the exercise you want to print
 
-main = prompt db
+main = print (eval multiply1by2)
 
 ---------------------
 -- YOUR WORK BELOW --
@@ -107,3 +107,21 @@ prompt db = do
 data Query
   = Table TableName
   | Values [[Integer]]
+
+-- Exercise 9
+
+data Expr
+  = Value Integer
+  | Add Expr Expr
+  | Mul Expr Expr
+
+eval :: Expr -> Integer
+eval expr =
+  case expr of
+    Value v ->v
+    Add a b -> eval a + eval b
+    Mul a b -> eval a * eval b
+
+value1 = Value 1
+value2 = Value 2
+multiply1by2 = Mul value1 value2
