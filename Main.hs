@@ -42,3 +42,14 @@ type Table = [Row]
 
 table :: Table
 table = [[("col1", 1), ("col2", 2)], [("col1", 3), ("col2", 4)]]
+
+-- Exercise 2
+
+ex2 :: Table
+ex2 =
+ [
+   [ ("x", 1), ("y", 2) ]
+ , [ ("x", 3), ("y", 4) ]
+ , [ ("x", 5), ("y", 6) ]
+ , [ ("x", 7), ("y", 8) ]
+ ]
