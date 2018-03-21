@@ -101,3 +101,9 @@ prompt db = do
           then ex3 (fromJust foundTable)
           else "Error, no table with that name found"
   putStrLn response
+
+-- Exercise 6
+
+data Query
+  = Table TableName
+  | Values [[Integer]]
